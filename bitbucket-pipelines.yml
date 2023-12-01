@@ -1,0 +1,16 @@
+image: node:latest
+
+
+pipelines:
+  branches:
+    development:
+      - step:
+          name: Build and Test
+          script:
+            - npm install
+            - npm test
+
+      # - step:
+      #     name: Deploy to Cloud Server
+      #     script:
+      #       - ./deploy-script.sh # replace with your deployment script
