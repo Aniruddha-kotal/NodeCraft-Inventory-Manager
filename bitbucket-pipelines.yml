@@ -23,7 +23,7 @@ pipelines:
         deployment: production
         script:
           - apt-get update && apt-get install -y openssh-client
-          - echo "$SSH_PRIVATE_KEY" | tr -d '\r\n' > ~/.ssh/id_rsa
+          - echo "$SSH_PRIVATE_KEY" | tr -d '\n' > ~/.ssh/id_rsa
           - chmod 600 ~/.ssh/id_rsa
           - ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@3.145.3.17 "cd /home/ec2-user/NodeProject/node && git fetch origin development && git checkout development && git pull && npm install && pm2 restart your-app"
 
