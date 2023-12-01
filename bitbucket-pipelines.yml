@@ -5,10 +5,14 @@ pipelines:
   branches:
     development:
       - step:
-          name: Build and Test
+          name: Build
           script:
             - npm install
-            
+      - step:
+          name: Deploy to EC2
+          script:
+          - chmod +x execute.sh
+          - ./execute.sh     
 
       # - step:
       #     name: Deploy to Cloud Server

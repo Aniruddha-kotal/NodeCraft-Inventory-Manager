@@ -1,0 +1,14 @@
+{
+    "apps":[
+        {
+            "name":"Node JS app",
+            "cwd":"/home/ec2-user/NodeProject/node",
+            "script":"./server.js",
+            "watch":true,
+            "autorestart": true,
+            "ignore_watch":["node_modules"],
+            "instances":1
+            
+        }
+    ]
+}
