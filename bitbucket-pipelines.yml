@@ -1,20 +1,31 @@
+# image: node:latest
+
+
+# pipelines:
+#   branches:
+#     development:
+#       - step:
+#           name: Build
+#           script:
+#             - npm install
+#       - step:
+#           name: Deploy to EC2
+#           script:
+#           - chmod +x execute.sh
+#           - ./execute.sh     
+
 image: node:latest
 
-
 pipelines:
-  branches:
-    development:
-      - step:
-          name: Build
-          script:
-            - npm install
-      - step:
-          name: Deploy to EC2
-          script:
-          - chmod +x execute.sh
-          - ./execute.sh     
+  default:
+    - step:
+        name: Deploy to EC2
+        deployment: production
+        script:
+          - apt-get update && apt-get install -y openssh-client
+          - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+          - chmod 600 ~/.ssh/id_rsa
+          - ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@3.145.3.17 "cd /home/ec2-user/NodeProject/node && git fetch origin development && git checkout development && git pull && npm install && pm2 restart your-app"
 
-      # - step:
-      #     name: Deploy to Cloud Server
-      #     script:
-      #       - ./deploy-script.sh # replace with your deployment script
+
+     
