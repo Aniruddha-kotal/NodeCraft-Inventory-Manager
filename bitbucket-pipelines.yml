@@ -63,4 +63,4 @@ pipelines:
           - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in key-pair.pem.enc -out key-pair.pem -d
           - chmod 600 key-pair.pem
           - scp -i key-pair.pem app.zip ec2-user@3.145.3.17:/home/ec2-user/NodeProject/deployment
-          - ssh -i key-pair.pem ec2-user@3.145.3.17 'cd /home/ec2-user/NodeProject/deployment && unzip -o app.zip && npm install && pm2 restart server.js'
+          - ssh -i key-pair.pem ec2-user@3.145.3.17 'cd /home/ec2-user/NodeProject/deployment && unzip -o app.zip && npm install && pm2 restart pm2.json'
