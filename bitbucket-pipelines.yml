@@ -28,15 +28,39 @@
 #           - ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@3.145.3.17 "cd /home/ec2-user/NodeProject/node && git fetch origin development && git checkout development && git pull && npm install && pm2 restart your-app"
 
 
-image: node:latest
+# image: node:latest
+
+# pipelines:
+#   default:
+#     - step:
+#         name: Test SSH Connection
+#         script:
+#           - apt-get update && apt-get install -y openssh-client
+#           - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+#           - chmod 600 ~/.ssh/id_rsa
+#           - echo "Hello from Bitbucket Pipeline" | ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@your-ec2-ip "cat > /home/ec2-user/NodeProject/connection_test.txt"
+
+
+image: node:14
 
 pipelines:
   default:
-    - step:
-        name: Test SSH Connection
-        script:
-          - apt-get update && apt-get install -y openssh-client
-          - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          - chmod 600 ~/.ssh/id_rsa
-          - echo "Hello from Bitbucket Pipeline" | ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@your-ec2-ip "cat > /home/ec2-user/NodeProject/connection_test.txt"
+    # - step:
+    #     name: Build and Test
+    #     caches:
+    #       - node
+    #     script:
+    #       - npm install
+    #       - npm test
 
+    - step:
+        name: Deploy to EC2
+        deployment: production
+        script:
+          - apt-get update
+          - apt-get install -y zip
+          - zip -r app.zip .
+          - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in key-pair.pem.enc -out key-pair.pem -d
+          - chmod 600 key-pair.pem
+          - scp -i key-pair.pem app.zip ec2-user@3.145.3.17:/home/ec2-user/NodeProject/deployment
+          - ssh -i key-pair.pem ec2-user@3.145.3.17 'cd /home/ec2-user/NodeProject/deployment && unzip -o app.zip && npm install && pm2 restart server.js'
