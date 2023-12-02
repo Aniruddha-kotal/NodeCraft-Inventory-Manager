@@ -38,5 +38,5 @@ pipelines:
           - apt-get update && apt-get install -y openssh-client
           - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           - chmod 600 ~/.ssh/id_rsa
-          - echo "Hello from Bitbucket Pipeline" | ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@your-ec2-ip "cat > /home/ec2-user/NodeProject/connection_test.txt"
+          - echo "Hello from Bitbucket Pipeline" | ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@3.145.3.17 "cat > /home/ec2-user/NodeProject/connection_test.txt"
 
