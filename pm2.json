@@ -2,7 +2,6 @@
     "apps":[
         {
             "name":"Node JS app",
-            "cwd":"/home/ec2-user/NodeProject/node",
             "script":"./server.js",
             "watch":true,
             "autorestart": true,
@@ -12,3 +11,5 @@
         }
     ]
 }
+
+       
