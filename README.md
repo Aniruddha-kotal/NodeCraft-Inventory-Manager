@@ -5,11 +5,11 @@ I have developed the Node JS application with all the given requirments. Please 
 
 ## Table of Contents
 
-- [Introduction](#Introduction)
-- [Features](#Features)
-- [Prerequisites](#Prerequisites)
-- [Getting Started](#Getting-Started)
-  - [Clone the Repository](#Clone-the-Repository)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [Clone the Repository](#clone-the-repository)
   - [Install Dependencies](#install-dependencies)
   - [Configuration](#configuration)
   - [Run the App](#run-the-app)
@@ -19,7 +19,8 @@ I have developed the Node JS application with all the given requirments. Please 
 
 ## Introduction
 
-Tech Stack used : -
+Tech Stack used:
+
 - Node JS
 - PG library for PostgreSQL
 - PostgreSQL
@@ -31,9 +32,9 @@ Tech Stack used : -
 
 Highlight key features of your app.
 
-- CRUD operation for manufacatures
+- CRUD operation for manufactures
 - CRUD operation for equipments
-- One - to - many realtion between Manufactures and Equipments
+- One-to-many relation between manufactures and equipments
 
 ## Prerequisites
 
@@ -49,6 +50,5 @@ Provide step-by-step instructions on how to get the app running on a local machi
 ### Clone the Repository
 
 ```bash
-git clone <repository_url >
-cd <repository_directory >
-
+git clone <repository_url>
+cd <repository_directory>
