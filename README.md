@@ -5,11 +5,11 @@ I have developed the Node JS application with all the given requirments. Please 
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-  - [Clone the Repository](#clone-the-repository)
+- [Introduction](#Introduction)
+- [Features](#Features)
+- [Prerequisites](#Prerequisites)
+- [Getting Started](#Getting-Started)
+  - [Clone the Repository](#Clone-the-Repository)
   - [Install Dependencies](#install-dependencies)
   - [Configuration](#configuration)
   - [Run the App](#run-the-app)
