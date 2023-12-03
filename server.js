@@ -106,7 +106,7 @@ app.delete('/manufacturer/:id', async (req, res) => {
         const result = await client.query('DELETE FROM manufacturer WHERE id = $1', [manufacturerId]);
 
         if (result.rowCount > 0) {
-            res.status(204).send(); // No content (successful deletion)
+            res.status(200).send('Equipment successfully deleted'); // No content (successful deletion)
         } else {
             res.status(404).json({ error: 'Manufacturer not found' });
         }
