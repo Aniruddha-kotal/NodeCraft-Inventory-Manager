@@ -44,7 +44,13 @@ function getEquipmentById(req, res) {
 
 
 function getEquimentByManufacturerId(req, res) {
-    client.query(`SELECT * FROM equipment WHERE manufacturer_id = '${req.params.id}'`, (err, result) => {
+    const query = `
+        SELECT e.id AS Equipment_ID, e.name AS equipment_name, e.serial_no, m.name AS manufacturer_name, m.id AS manufacturer_ID
+        FROM equipment e
+        JOIN manufacturer m ON e.manufacturer_id = m.id
+        WHERE m.id = $1`;
+
+    client.query(query,[req.params.id], (err, result) => {
         if(!err){
             if(result.rows.length > 0){
                 res.send(result.rows);
