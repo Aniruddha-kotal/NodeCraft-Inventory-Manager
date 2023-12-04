@@ -1,7 +1,7 @@
 # NodeJS Coding Challenge
 
 I have developed the Node JS application with all the given requirments. Please go through the readme to know more.
-This file has a overview of the project and guide to run on local.
+This file has a overview of the project and guide to clone and run on local.
 
 ## Please find another file named "" for all the required information to test the app in AWS EC2 server. 
 
@@ -31,18 +31,19 @@ Tech Stack used:
 
 ## Features <a name="features"></a>
 
-Highlight key features of your app.
+Highlight key features of the app.
 
 - CRUD operation for manufactures
 - CRUD operation for equipments
-- One-to-many relation between manufactures and equipments
+- One-to-many relation between manufacturers and equipments
 
 ## Prerequisites <a name="prerequisites"></a> - to run on local
 
 List any software or tools that need to be installed before running your app.
 
 - Node.js 
-- npm 
+- npm
+- Git
 
 ## Getting Started <a name="getting-started"></a>
 
@@ -53,7 +54,7 @@ Provide step-by-step instructions on how to get the app running on a local machi
 
 
 ```
- git clone <repository_url>
+ git clone https://AniruddhaKotal@bitbucket.org/aniruddhaws/node.git
  cd <repository_directory>
 ```
 
@@ -75,3 +76,5 @@ Moreover you must have the same database and tables relations to work properly.
 ```
 
 Your app should now be running at http://localhost:3000.
+
+## Thank you !!!
