@@ -58,7 +58,7 @@ Provide step-by-step instructions on how to get the app running on a local machi
  cd <repository_directory>
 ```
 
-### Install Dependencies
+### Install Dependencies <a name="install-dependencies"></a>
 ###
 ```
   npm install
@@ -69,7 +69,7 @@ Provide step-by-step instructions on how to get the app running on a local machi
 If you want to run this application in local you must have PostgreSQl installed in you environment.
 Moreover you must have the same database and tables relations to work properly.
 
-### Run the App
+### Run the App <a name="run-the-app"></a>
 ###
 ```
   npm start
