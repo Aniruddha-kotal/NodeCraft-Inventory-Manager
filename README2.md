@@ -23,6 +23,7 @@
 
 The application is Hosted on AWS EC2 Linux instance.
 This README provides all the CRUL commands and JSON scripts where needeed to test and use the application.
+My application is cloned in the EC2 path - /home/ec2-user/NodeProject/node
 
 
 ## AWS EC2 App Check README
@@ -266,6 +267,7 @@ Here are the steps , you can use pm2 in AWS EC2.
 - To check the logs
     - pm2 log
     
+<a name="db"></a>
 
 ## Database connection
 I have used PostgreSQL for this project. I have insalled in postgreSQl in the AWS EC2 running on port 5432
