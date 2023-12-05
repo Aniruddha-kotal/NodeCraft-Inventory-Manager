@@ -3,7 +3,7 @@
 I have developed the Node JS application with all the given requirments. Please go through the readme to know more.
 This file has a overview of the project and guide to clone and run on local.
 
-## Please find another file named "" for all the required information to test the app in AWS EC2 server. 
+## Please find another file named "[README2](https://bitbucket.org/aniruddhaws/node/src/development/README2.md)" for all the required information to test the app in AWS EC2 server. 
 
 
 ## Table of Contents
