@@ -17,9 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/equipment', equipmentsController.getAllEquipments);
 app.get('/equipment/:id', equipmentsController.getEquipmentById);
-app.get('/equipmentsbymanu/:id', equipmentsController.getEquimentByManufacturerId);
 app.put('/equipment/:id', equipmentsController.updateEquipment);
 app.delete('/equipment/:id', equipmentsController.deleteEquipment);
+app.get('/equipmentsbymanu/:id', equipmentsController.getEquimentByManufacturerId);
 
 app.listen(port, () => console.log(`app listening on port ${port}`));
 
@@ -106,7 +106,7 @@ app.delete('/manufacturer/:id', async (req, res) => {
         const result = await client.query('DELETE FROM manufacturer WHERE id = $1', [manufacturerId]);
 
         if (result.rowCount > 0) {
-            res.status(200).send('Equipment successfully deleted'); // No content (successful deletion)
+            res.status(200).send('Equipment successfully deleted'); 
         } else {
             res.status(404).json({ error: 'Manufacturer not found' });
         }
@@ -193,5 +193,28 @@ app.post('/manufacturer/equipments/:id', async (req, res) => {
         console.error(error.message);
         res.status(500).json({ error: 'Internal server error' });
     }
+});
+
+// Search manufacturer by Euipment ID --------------------
+
+app.get('/getmanufacturerbyequip/:id', (req, res) => {
+    const query = `
+        SELECT m.id AS manufacturer_ID, m.name AS manufacturer_name
+        FROM manufacturer m
+        JOIN equipment e ON e.manufacturer_id = m.id
+        WHERE e.id = $1`;
+
+    client.query(query, [req.params.id], (err, result) => {
+        if (!err) {
+            if (result.rows.length > 0) {
+                res.send(result.rows);
+            } else {
+                res.status(400).send(`No manufacturer found for equipment ID: ${req.params.id}`);
+            }
+        } else {
+            console.error('Error executing query:', err.message); // Access the error message using err.message
+            res.status(500).send('Internal Server Error');
+        }
+    });
 });
 

@@ -75,3 +75,7 @@ Moreover you must have the same database and tables relations to work properly.
 ```
 
 Your app should now be running at http://localhost:3000.
+
+
+
+## Thank you !!!
