@@ -26,7 +26,7 @@ app.listen(port, () => console.log(`app listening on port ${port}`));
 client.connect();
 
 app.get("/", (req, res) => {
-    res.send("Hello , This project is created by Aniruddha Kotal ---- Finally done");
+    res.send("Hello , This is the Node JS coding challenge project, created by Aniruddha Kotal");
 })
 
 
@@ -199,7 +199,7 @@ app.post('/manufacturer/equipments/:id', async (req, res) => {
 
 app.get('/getmanufacturerbyequip/:id', (req, res) => {
     const query = `
-        SELECT m.id AS manufacturer_ID, m.name AS manufacturer_name
+        SELECT e.name as Equipment name, m.id AS manufacturer_ID, m.name AS manufacturer_name
         FROM manufacturer m
         JOIN equipment e ON e.manufacturer_id = m.id
         WHERE e.id = $1`;
