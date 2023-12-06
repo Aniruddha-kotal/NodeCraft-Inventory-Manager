@@ -26,7 +26,16 @@ app.listen(port, () => console.log(`app listening on port ${port}`));
 client.connect();
 
 app.get("/", (req, res) => {
-    res.send("Hello , This is the Node JS coding challenge project, created by Aniruddha Kotal");
+    // res.send("Hello , This is the Node JS coding challenge project, created by Aniruddha Kotal");
+    // res.send("Please read the 'README2' file from the Bit Bucket repo to find all the APIs and CURL commands to test the app");
+
+    const responseText =
+  "Hello, This is the Node JS coding challenge project, created by Aniruddha Kotal.\n\n" +
+  "-----------------Please read the 'README2' file from the Bit Bucket repo to find all the APIs and CURL commands to test the app.";
+
+
+    // Send the response with paragraphs
+    res.send(responseText);
 })
 
 
